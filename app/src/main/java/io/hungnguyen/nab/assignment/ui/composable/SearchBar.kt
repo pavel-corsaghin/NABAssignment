@@ -88,9 +88,9 @@ fun SearchBar(
             ),
             shape = RoundedCornerShape(8.dp),
             colors = TextFieldDefaults.outlinedTextFieldColors(
-                textColor = if(isLightMode) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface,
-                placeholderColor = if(isLightMode) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface,
-                trailingIconColor = if(isLightMode || value.isNotEmpty()) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface,
+                textColor = Color.Black,
+                placeholderColor = Color.Gray,
+                trailingIconColor = Color.Gray,
             )
         )
     }

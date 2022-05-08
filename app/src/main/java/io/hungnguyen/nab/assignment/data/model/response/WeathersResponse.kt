@@ -3,8 +3,6 @@ package io.hungnguyen.nab.assignment.data.model.response
 import com.google.gson.annotations.SerializedName
 
 data class WeathersResponse(
-    @SerializedName("city") 
-    val city: CityEntity? = CityEntity(),
     @SerializedName("cod") 
     val cod: String? = null,
     @SerializedName("message") 
@@ -12,32 +10,10 @@ data class WeathersResponse(
     @SerializedName("cnt") 
     val cnt: Int? = null,
     @SerializedName("list") 
-    val weathers: ArrayList<WeatherEntity> = arrayListOf()
+    val weathers: ArrayList<Weather> = arrayListOf()
 )
 
-data class CoordEntity(
-    @SerializedName("lon")
-    val lon: Double? = null,
-    @SerializedName("lat")
-    val lat: Double? = null
-)
-
-data class CityEntity(
-    @SerializedName("id")
-    val id: Int? = null,
-    @SerializedName("name")
-    val name: String? = null,
-    @SerializedName("coord")
-    val coord: CoordEntity? = CoordEntity(),
-    @SerializedName("country")
-    val country: String? = null,
-    @SerializedName("population")
-    val population: Int? = null,
-    @SerializedName("timezone")
-    val timezone: Int? = null
-)
-
-data class TempepaturaEntity(
+data class Temperature(
     @SerializedName("day")
     val day: Double? = null,
     @SerializedName("min")
@@ -63,7 +39,7 @@ data class Description(
     val icon: String? = null
 )
 
-data class WeatherEntity(
+data class Weather(
     @SerializedName("dt")
     val dt: Long? = null,
     @SerializedName("sunrise")
@@ -71,7 +47,7 @@ data class WeatherEntity(
     @SerializedName("sunset")
     val sunset: Int? = null,
     @SerializedName("temp")
-    val temp: TempepaturaEntity? = TempepaturaEntity(),
+    val temp: Temperature? = Temperature(),
     @SerializedName("pressure")
     val pressure: Int? = null,
     @SerializedName("humidity")

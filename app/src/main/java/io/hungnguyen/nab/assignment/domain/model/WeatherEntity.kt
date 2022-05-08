@@ -1,6 +1,6 @@
 package io.hungnguyen.nab.assignment.domain.model
 
-data class Weather(
+data class WeatherEntity(
     val date: Long,
     val temp: Double?,
     val pressure: Int?,

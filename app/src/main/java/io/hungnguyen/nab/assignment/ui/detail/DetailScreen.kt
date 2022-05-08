@@ -1,5 +1,6 @@
 package io.hungnguyen.nab.assignment.ui.detail
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Icon
@@ -10,11 +11,12 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -31,18 +33,29 @@ fun DetailScreen(
     navController: NavController,
     viewModel: DetailViewModel = hiltViewModel()
 ) {
+    val context = LocalContext.current
     viewModel.submitAction(DetailAction.GetDetail(id))
     val state by viewModel.state.collectAsState()
+    LaunchedEffect(state.event) {
+        when(val event = state.event) {
+            is DetailEvent.ShowError -> {
+                Toast.makeText(context, event.message, Toast.LENGTH_SHORT).show()
+                viewModel.submitAction(DetailAction.ResetEvent)
+            }
+            else -> {}
+        }
+    }
+
     AppComposable(
         isLoading = state.isLoading,
         content = {
-            DetailScreen(navController, state)
+            DetailScreenContent(navController, state)
         }
     )
 }
 
 @Composable
-fun DetailScreen(
+private fun DetailScreenContent(
     navController: NavController,
     state: DetailState,
 ) {
@@ -76,7 +89,7 @@ fun DetailScreen(
 @Composable
 fun DetailsPreview() {
     AppTheme {
-        DetailScreen(
+        DetailScreenContent(
             navController = rememberNavController(),
             state = DetailState()
         )

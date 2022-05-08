@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import io.hungnguyen.nab.assignment.ui.detail.DetailScreen
+import io.hungnguyen.nab.assignment.ui.home.HomeScreen
 import io.hungnguyen.nab.assignment.ui.home.HomeScreenContent
 import io.hungnguyen.nab.assignment.ui.home.HomeViewState
 import io.hungnguyen.nab.assignment.ui.theme.AppTheme
@@ -35,7 +36,7 @@ class MainActivity : ComponentActivity() {
                         startDestination = NavDestinations.HOME_SCREEN,
                     ) {
                         composable(NavDestinations.HOME_SCREEN) {
-                            HomeScreenContent(navController)
+                            HomeScreen(navController)
                         }
                         composable("${NavDestinations.DETAIL_SCREEN}/{id}") {
                             it.arguments?.getString("id")?.toLong()?.let { id ->

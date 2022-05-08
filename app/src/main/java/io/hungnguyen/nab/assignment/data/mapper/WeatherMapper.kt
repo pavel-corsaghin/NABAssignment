@@ -1,18 +1,18 @@
 package io.hungnguyen.nab.assignment.data.mapper
 
-import io.hungnguyen.nab.assignment.data.model.response.WeatherEntity
-import io.hungnguyen.nab.assignment.domain.model.Weather
+import io.hungnguyen.nab.assignment.data.model.response.Weather
+import io.hungnguyen.nab.assignment.domain.model.WeatherEntity
 import javax.inject.Inject
 
 class WeatherMapper @Inject constructor() {
 
-    fun mapFromEntity(entity: WeatherEntity): Weather {
-        return Weather(
-            date = entity.dt ?: 0,
-            temp = entity.temp?.day,
-            pressure = entity.pressure,
-            humidity = entity.humidity,
-            description = entity.description.firstOrNull()?.description
+    fun mapToEntity(item: Weather): WeatherEntity {
+        return WeatherEntity(
+            date = item.dt ?: 0,
+            temp = item.temp?.day,
+            pressure = item.pressure,
+            humidity = item.humidity,
+            description = item.description.firstOrNull()?.description
         )
     }
 }
