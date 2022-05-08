@@ -1,6 +1,6 @@
-# Android-Clean-Architecture-MVVM-Hilt-Jetpack-Compose
+# NAB Assignment
 
-A sample - boilerplate android news app uses the last technologies and methodologies recommended by Google:
+A very simple/MVP weather app that use:
 - Clean Architecture with 3 separated layers: data, domain, presentation(ui)
 - Dagger Hilt
 - Retrofit + GsonConverter
@@ -9,12 +9,5 @@ A sample - boilerplate android news app uses the last technologies and methodolo
 - Jetpack compose
 - Navigation component
 
-Notes: This project still in development process
-
-## Contributing
-
-All contributions are welcomed. Please create your PR and send to me.
-
-## License
-
-MIT
+Notes: For security reason, API key is not added to project.
+Please specific value for api_key in local.properties file before running project
