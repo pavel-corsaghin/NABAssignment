@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Weather Forecast</string>
+    <string name="detail">Detail</string>
+    <string name="search_placeholder">Enter the city</string>
+    <string name="date">Date: %s</string>
+    <string name="avg_temp">Average Temperature: %.2f°C</string>
+    <string name="pressure">Pressure: %d</string>
+    <string name="humidity">Humidity: %d%%</string>
+    <string name="description">Description: %s</string>
+    <string name="err_query_short">Query too short</string>
+</resources>
