@@ -55,7 +55,7 @@ object NetworkModule {
                 val original = it.request()
                 val newUrl = original.url
                     .newBuilder()
-                    .addQueryParameter("apiKey", BuildConfig.API_KEY)
+                    .addQueryParameter("appid", BuildConfig.API_KEY)
                     .build()
                 val newRequest = original
                     .newBuilder()

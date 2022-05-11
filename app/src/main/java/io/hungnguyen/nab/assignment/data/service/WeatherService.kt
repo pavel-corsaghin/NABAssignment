@@ -1,6 +1,5 @@
 package io.hungnguyen.nab.assignment.data.service
 
-import io.hungnguyen.nab.assignment.BuildConfig
 import io.hungnguyen.nab.assignment.data.model.response.WeathersResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -12,6 +11,5 @@ interface WeatherService {
         @Query("q") q: String,
         @Query("cnt") cnt: Int = 7,
         @Query("units") units: String = "metric",
-        @Query("appid") appid: String = BuildConfig.API_KEY
     ): Response<WeathersResponse>
 }
